@@ -1,6 +1,6 @@
 # LLM Ambiguity Attribution
 
-This repository contains the cleaned research code for the ambiguity-attribution experiments in the paper. The original implementation lived in notebooks; the runnable code now lives in small Python modules and scripts.
+This repository contains the code for the paper 'Localizing Prompt Ambiguity in Large Language Models with Probe-Targeted Attribution'.
 
 ## Layout
 
