@@ -1,7 +1,12 @@
-torch
-numpy
 datasets
+huggingface_hub
+matplotlib
+numpy
+openai
 scikit-learn
+scipy
+seaborn
+sklearn-prg
+torch
 transformer-lens
 tqdm
-seaborn

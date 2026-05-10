@@ -2,9 +2,15 @@ leetcode/
 math/
 writing/
 gold/
+__pycache__/
+gpt_attributions/
+probes/
 math_attributions/
 data/
 export/
 code_attributions/
 writing_attributions/
+combined_attributions/
+gold_attributions/
+*_attributions_clear/
 *_attributions*/
