@@ -6,7 +6,7 @@ import re
 
 import numpy as np
 from scipy.ndimage import gaussian_filter1d
-from sklearn.metrics import average_precision_score, roc_auc_score
+from sklearn.metrics import roc_auc_score
 from sklearn_prg.metrics import precision_recall_gain_curve
 
 
@@ -19,19 +19,6 @@ def gaussian_smooth(scores, sigma: float = 3.0) -> np.ndarray:
 
 def span_auroc(scores, mask) -> float:
     return float(roc_auc_score(np.asarray(mask).astype(int), np.asarray(scores)))
-
-
-def span_auprc(scores, mask) -> float:
-    return float(average_precision_score(np.asarray(mask).reshape(-1), np.asarray(scores).reshape(-1)))
-
-
-def normalized_auprc(scores, mask) -> float:
-    mask_array = np.asarray(mask).reshape(-1)
-    base_rate = float(mask_array.mean())
-    if base_rate >= 1.0:
-        return 1.0
-    return float((span_auprc(scores, mask_array) - base_rate) / (1 - base_rate))
-
 
 def span_auprg(scores, mask) -> float:
     precision_gain, recall_gain = precision_recall_gain_curve(

@@ -74,7 +74,7 @@ python scripts/plot_probe_accuracies.py
 Run attributions on a held-out split:
 
 ```bash
-python scripts/run_attribution.py --evaluation-dataset code --probe-dataset code --method mid_layer
+python scripts/run_attribution.py --evaluation-dataset code --probe-dataset code --method prig
 python scripts/run_attribution.py --evaluation-dataset code --probe-dataset code --method gradient
 python scripts/run_attribution.py --evaluation-dataset code --probe-dataset code --method ig
 ```
@@ -82,7 +82,7 @@ python scripts/run_attribution.py --evaluation-dataset code --probe-dataset code
 Score attribution outputs:
 
 ```bash
-python scripts/score_attributions.py --results-dir code_attributions/code/mid_layer --mode mid-layer
+python scripts/score_attributions.py --results-dir code_attributions/code/prig --mode prig
 python scripts/score_attributions.py --results-dir code_attributions/code/gradient --mode layers
 python scripts/score_attributions.py --results-dir code_attributions/code/ig --mode layers
 ```
@@ -97,15 +97,15 @@ Score sentence-level PRIG selection from held-out combined attributions:
 
 ```bash
 python scripts/score_sentence_selection.py \
-  --ambiguous-results combined_attributions/combined/mid_layer/mid_layer_12_14_attribution_results.json \
-  --clear-results combined_attributions_clear/combined/mid_layer/mid_layer_12_14_attribution_results.json
+  --ambiguous-results combined_attributions/combined/prig/prig_12_14_attribution_results.json \
+  --clear-results combined_attributions_clear/combined/prig/prig_12_14_attribution_results.json
 ```
 
 Render a paper-style token heatmap as standalone HTML:
 
 ```bash
 python scripts/render_token_heatmap.py \
-  --results-path gold_attributions/combined/mid_layer/mid_layer_12_14_attribution_results.json \
+  --results-path gold_attributions/combined/prig/prig_12_14_attribution_results.json \
   --index 2 \
   --output-path export/example_heatmap.html \
   --sigma 1
@@ -123,7 +123,7 @@ python scripts/render_token_heatmap.py \
 
 3. Attribution runs
    - For each evaluation dataset, run `scripts/run_attribution.py` with:
-     - `--method mid_layer` for the paper’s main PRIG method.
+     - `--method prig` for the paper’s main PRIG method.
      - `--method gradient` for Grad×Input.
      - `--method ig` for embedding-space IG.
    - Use `--probe-dataset` to swap between in-domain, combined, and cross-domain probes.
@@ -139,4 +139,4 @@ python scripts/render_token_heatmap.py \
 ## Notes
 
 - The cleaned scripts keep the notebooks’ dataset filters and directory conventions unless the paper specifies otherwise.
-- The HTML heatmap helper used for qualitative examples is available as `ambiguity_attribution.visualize_token_attributions_blue`, matching the notebook function name for traceability.
+- The HTML heatmap helper used for qualitative examples is available as `ambiguity_attribution.visualize_token_attributions`.

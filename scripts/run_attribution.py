@@ -73,7 +73,7 @@ def main() -> None:
     parser.add_argument("--probe-dataset", choices=["code", "math", "writing", "combined"], required=True)
     parser.add_argument("--probe-dir", type=Path)
     parser.add_argument("--data-root", type=Path, default=Path("."))
-    parser.add_argument("--method", choices=["mid_layer", "gradient", "ig"], required=True)
+    parser.add_argument("--method", choices=["prig", "gradient", "ig"], required=True)
     parser.add_argument("--target", choices=["ambiguous", "clear"], default="ambiguous")
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--model-name", default="meta-llama/Llama-3.1-8B-Instruct")
@@ -105,7 +105,7 @@ def main() -> None:
         baseline_prompts = [sample.prompt_text for sample in split.samples] if split is not None else [r.clear_prompt for r in records]
         ig_baseline = average_embedding_baseline(model, baseline_prompts)
 
-    if args.method == "mid_layer":
+    if args.method == "prig":
         for start_layer, end_layer in MID_LAYER_OPTIONS:
             results = {}
             for record in tqdm(records, desc=f"{start_layer}-{end_layer}"):
@@ -130,7 +130,7 @@ def main() -> None:
                     prompt_text,
                     target_sentence,
                 )
-            save_json(output_dir / f"mid_layer_{start_layer}_{end_layer}_attribution_results.json", results)
+            save_json(output_dir / f"prig_{start_layer}_{end_layer}_attribution_results.json", results)
         return
 
     results = {}

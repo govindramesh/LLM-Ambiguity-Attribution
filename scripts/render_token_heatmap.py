@@ -9,7 +9,7 @@ import numpy as np
 from ambiguity_attribution.metrics import gaussian_smooth
 from ambiguity_attribution.visualization import (
     render_full_html_document,
-    visualize_token_attributions_blue,
+    visualize_token_attributions,
 )
 
 
@@ -49,7 +49,7 @@ def main() -> None:
     if args.sigma:
         attributions = gaussian_smooth(attributions, sigma=args.sigma)
 
-    snippet = visualize_token_attributions_blue(
+    snippet = visualize_token_attributions(
         example["tokens"],
         attributions,
         example["mask"],

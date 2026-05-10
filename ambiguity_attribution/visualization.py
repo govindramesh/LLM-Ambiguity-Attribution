@@ -7,7 +7,7 @@ import html
 import numpy as np
 
 
-def visualize_token_attributions_blue(
+def visualize_token_attributions(
     tokens,
     attributions,
     mask,
@@ -17,13 +17,9 @@ def visualize_token_attributions_blue(
     """
     Render the notebook-style token heatmap used for qualitative examples.
 
-    This follows the `visualize_token_attributions_blue` notebook function that
-    generated the paper examples: token background opacity is based on the
-    absolute attribution magnitude, and ground-truth mask tokens are
-    underlined.
-
-    The original notebook function name is preserved for traceability, even
-    though the default heatmap color is not blue.
+    This follows the notebook heatmap function used to generate the paper
+    examples: token background opacity is based on the absolute attribution
+    magnitude, and ground-truth mask tokens are underlined.
     """
 
     attribution_array = np.asarray(attributions, dtype=float)
