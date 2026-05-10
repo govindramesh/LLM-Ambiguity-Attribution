@@ -1,12 +1,11 @@
 # LLM Ambiguity Attribution
 
-This repository contains the cleaned research code for the ambiguity-attribution experiments in the paper. The original implementation lived in notebooks; the runnable code now lives in small Python modules and scripts. The notebooks are still present as reference artifacts for now.
+This repository contains the cleaned research code for the ambiguity-attribution experiments in the paper. The original implementation lived in notebooks; the runnable code now lives in small Python modules and scripts.
 
 ## Layout
 
 - `ambiguity_attribution/`: shared code for data loading, prompts, probe training, attribution, evaluation, and visualization.
 - `scripts/`: command-line entrypoints for the paper workflows.
-- `*.ipynb`: original reference notebooks.
 
 ## Setup
 
