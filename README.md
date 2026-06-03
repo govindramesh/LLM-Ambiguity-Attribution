@@ -134,8 +134,3 @@ python scripts/render_token_heatmap.py \
 5. GPT baseline
    - Run `scripts/run_gpt_sentence_baseline.py --dataset combined` for the sentence-selection baseline reported in the paper.
    - Run `scripts/score_sentence_selection.py` on the combined clear/ambiguous PRIG outputs to reproduce the thresholded sentence-level evaluation for the attribution method.
-
-## Notes
-
-- The cleaned scripts keep the notebooks’ dataset filters and directory conventions unless the paper specifies otherwise.
-- The HTML heatmap helper used for qualitative examples is available as `ambiguity_attribution.visualize_token_attributions`.
